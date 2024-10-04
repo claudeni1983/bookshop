@@ -1,0 +1,6 @@
+ID;title;descr;authors_ID;stock;price;currency_code
+201;Wuthering Heights;"Wuthering Heights, Emily Brontë's only novel, was published in 1847 under the pseudonym.";101;12;11.11;GBP
+207;Jane Eyre;"Jane Eyre /ɛər/ (originally published as Jane Eyre: An Autobiography) is a novel by English writer";107;11;12.34;GBP
+251;The Raven;"The Raven is a narrative poem by American writer Edgar Allan Poe. First published in January 1845";150;333;13.13;USD
+252;Eleonora;"Eleonora is a short story by Edgar Allan Poe, first published in 1842 in Philadelphia.";150;555;14;USD
+271;Catweazle;"Catweazle is a British fantasy television series, starring Geoffrey Bayldon.";170;22;150;JPY

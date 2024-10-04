@@ -1,0 +1,61 @@
+# Browse Books as any user
+GET http://localhost:4004/odata/v4/catalog/Books?
+  # &$select=title,stock
+   &$expand=currency
+  # &sap-locale=de
+
+###
+# Submit Order
+#
+
+POST http://localhost:4004/odata/v4/buy/Orders
+Content-Type: application/json;IEEE754Compatible=true
+
+{ "Items":[{"book_ID":201, "amount":5}]  }
+
+###
+
+GET http://localhost:4004/odata/v4/buy/Orders?
+  &$expand=Items
+
+###
+
+POST http://localhost:4004/odata/v4/buy/Orders
+Content-Type: application/json;IEEE754Compatible=true
+
+{ "Items":[{"book_ID":207, "amount":10}]  }
+
+###
+
+GET http://localhost:4004/odata/v4/buy/Orders?
+  &$filter=ID eq '6327f30d-1540-48f3-bf19-55a23879bf9f'
+  &$expand=Items
+
+### ------------------------------------------------------------------------
+# Create book
+POST http://localhost:4004/odata/v4/admin/Books
+Content-Type: application/json;IEEE754Compatible=true
+Authorization: Basic alice:
+
+{
+  "ID": 2,
+  "title": "Poems : Pocket Poets",
+  "descr": "The Everyman's Library Pocket Poets hardcover series is popular for its compact size and reasonable price.",
+  "authors": { "ID": 101 },
+  "stock": 5,
+  "price": "12.05",
+  "currency_code": "USD"
+}
+
+### -------------------------------------------------------------------------
+# Browse Books as any user
+GET http://localhost:4004/odata/v4/catalog/Books?
+   &$filter=ID eq 2
+   &$expand=authors
+
+###
+# Browse Books as any user
+GET http://localhost:4004/odata/v4/catalog/Books?
+  # &$select=title,stock
+  # &$expand=currency
+  &sap-locale=de
