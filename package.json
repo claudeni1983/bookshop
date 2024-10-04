@@ -16,7 +16,14 @@
     "@cap-js/cds-types": "^0.6"
   },
   "cds": {
+    "hana": {
+      "deploy-format": "hdbtable"    },    
     "requires": {
+      "[dev]": {
+        "auth": {
+          "kind": "xsuaa"
+        }
+      },      
       "db": {
         "kind": "sql",
         "credentials": {
@@ -24,8 +31,15 @@
         }
       },
       "[production]": {
-        "db": "hana",
-        "auth": "xsuaa"
+        "db": {
+          "kind": "sql"
+        },
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "uaa": {
+          "kind": "xsuaa"
+        }
       }      
     }
   },
